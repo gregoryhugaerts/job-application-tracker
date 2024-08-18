@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+    Edit Application
+{% endblock title %}
+{% block content %}
+    <h1>Edit Application</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {{ form.company.label }} {{ form.company() }}
+        {{ form.job_title.label }} {{ form.job_title() }}
+        {{ form.status.label }} {{ form.status() }}
+        {{ form.applied_on.label }} {{ form.applied_on() }}
+        {{ form.notes.label }} {{ form.notes() }}
+        <input type="submit" value="Update">
+    </form>
+{% endblock content %}

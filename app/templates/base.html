@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="simple job tracker">
+        <meta name="keywords" content="weekend project, job, tracker">
+        <title>
+            {% block title %}
+                Job Application Tracker
+            {% endblock title %}
+        </title>
+        <script src="https://unpkg.com/htmx"></script>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{ url_for("applications.applications") }}">Applicaton tracker</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <details class="dropdown">
+                            <summary>Applications</summary>
+                            <ul>
+                                <li>
+                                    <a href="{{ url_for("applications.applications") }}">list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for("applications.create_application") }}">create</a>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}<li class="flash">{{ message }}</li>{% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            {% block content %}
+            {% endblock content %}
+        </main>
+        <footer>
+            created by <a href="https://gregoryhugaerts.github.io/">Gregory Hugaerts</a>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}
+    My Applications
+{% endblock title %}
+{% block content %}
+    <h1>My Applications</h1>
+    <div class="filters"></div>
+    {% if applications %}
+        <table class="striped" id="applications-table">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Job Title</th>
+                    <th>Status</th>
+                    <th>Applied On</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for application in applications %}
+                    <tr>
+                        <td>{{ application.company.name }}</td>
+                        <td>{{ application.job_title }}</td>
+                        <td>{{ application.status }}</td>
+                        <td>{{ application.applied_on }}</td>
+                        <td>
+                            <a role="button"
+                               href="{{ url_for('applications.edit_application', application_id=application.id) }}">Edit</a>
+                            <a role="button"
+                               href="{{ url_for('applications.delete_application', application_id=application.id) }}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock content %}

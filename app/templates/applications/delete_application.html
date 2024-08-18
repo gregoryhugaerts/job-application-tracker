@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}
+    Confirm Deletion
+{% endblock title %}
+{% block content %}
+    <h1>Confirm Deletion</h1>
+    <p>
+        Are you sure you want to delete the application for "{{ application.job_title }}" at "{{ application.company.name }}"
+    </p>
+    <form method="post">
+        <input type="submit" value="Delete">
+    </form>
+{% endblock content %}
