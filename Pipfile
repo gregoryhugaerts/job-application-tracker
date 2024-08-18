@@ -6,12 +6,12 @@ name = "pypi"
 [packages]
 flask = "*"
 flask-sqlalchemy-lite = "*"
-flask-htmx = "*"
 wtforms-alchemy = "*"
 flask-wtf = "*"
 
 [dev-packages]
 python-lsp-server = {extras = ["all"], version = "*"}
+mypy = "*"
 
 [requires]
 python_version = "3.11"

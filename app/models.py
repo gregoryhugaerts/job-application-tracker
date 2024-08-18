@@ -4,11 +4,13 @@ from datetime import date
 
 from flask_sqlalchemy_lite import SQLAlchemy
 from sqlalchemy import ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column, relationship, DeclarativeBase
 
-Base = declarative_base()
 db = SQLAlchemy()
+
+
+class Base(DeclarativeBase):
+    pass
 
 
 class Company(Base):

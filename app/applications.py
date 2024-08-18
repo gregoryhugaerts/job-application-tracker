@@ -7,15 +7,15 @@ from flask import (
     abort,
     request,
 )
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm  # type: ignore
 from sqlalchemy import select
-from wtforms_alchemy import ModelFormField, model_form_factory
+from wtforms_alchemy import ModelFormField, model_form_factory  # type: ignore
 
 from .models import Application, Company, db
 
 applications_bp = Blueprint("applications", __name__)
 
-BaseModelForm = model_form_factory(FlaskForm)
+BaseModelForm: FlaskForm = model_form_factory(FlaskForm)
 
 
 class ModelForm(BaseModelForm):
